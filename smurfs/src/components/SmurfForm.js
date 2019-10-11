@@ -9,7 +9,7 @@ const initalForm = {
     height: "",
     age: ""
 }
-export const SmurfForm = ({addSmurf}) => {
+export const SmurfForm = ({postSmurf}) => {
     const onSubmit = (formValues, actions) => {
         const newSmurf = {
             name: formValues.name,
@@ -18,7 +18,7 @@ export const SmurfForm = ({addSmurf}) => {
             id: Date.now(),
         }
 
-        addSmurf(newSmurf)
+        postSmurf(newSmurf)
         actions.resetForm()
     }
     return(

@@ -14,11 +14,27 @@ export const getSmurfs = () => dispatch => {
     axios.get(smurfsApi)
     .then((response) => {
         console.log(response.data);
-        response.data.forEach(smurf => {
-            dispatch(addSmurf(smurf))
-        });
+        dispatch(addSmurf(response.data))
+
+        // response.data.forEach(smurf => {
+        //     dispatch(addSmurf(smurf))
+        // });
     })
     .catch((error) => {
+        console.log(error);
+    })
+}
+
+export const postSmurf = (smurf) => dispatch => {
+    axios.post(smurfsApi, smurf)
+    .then((response) => {
+        dispatch(addSmurf(response.data))
+
+        console.log(response.data);
+        // response.data.forEach(smurf => {
+        //     dispatch(addSmurf(smurf))
+        // });
+    }).catch((error) => {
         console.log(error);
     })
 }
