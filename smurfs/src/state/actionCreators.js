@@ -1,8 +1,21 @@
 import * as actionTypes from "./actionTypes";
+import axios from "axios";
 
-export const addSmurf = (smurf) => {
+const smurfsApi = `http://localhost:3333/smurfs`;
+
+export const addSmurf = (smurfs) => {
     return {
         type: actionTypes.ADD_SMURF,
-        payload: smurf,
+        payload: smurfs,
     }
+}
+
+export const getSmurfs = () => dispatch => {
+    axios.get(smurfsApi)
+    .then((response) => {
+        dispatch(response.data)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
 }
