@@ -11,6 +11,8 @@ export const Smurf = props => {
     return (
         <div>
             <h3>Name: {smurf.name}</h3>
+            <h3>Height: {smurf.height}</h3>
+            <h3>Age: {smurf.age}</h3>
             <Button onClick={()=> deleteSmurf(smurf.id)} color='danger' >Remove Smurf</Button>
         </div>
     );
