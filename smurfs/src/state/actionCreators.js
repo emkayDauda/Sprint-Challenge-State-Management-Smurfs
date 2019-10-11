@@ -38,3 +38,12 @@ export const postSmurf = (smurf) => dispatch => {
         console.log(error);
     })
 }
+
+export const deleteSmurf = (id) => dispatch => {
+    axios.delete(`${smurfsApi}/${id}`).then(res => {
+        console.log(res.data);
+        dispatch(addSmurf(res.data))
+
+    })
+    .catch((e) => {console.log(e)})
+}

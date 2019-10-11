@@ -6,10 +6,12 @@ import * as actionCreators from "../state/actionCreators";
 
 export const Smurf = props => {
     const { smurf } = props;
+    const { deleteSmurf } = props;
+
     return (
         <div>
             <h3>Name: {smurf.name}</h3>
-            <Button color='danger' >Remove Smurf</Button>
+            <Button onClick={()=> deleteSmurf(smurf.id)} color='danger' >Remove Smurf</Button>
         </div>
     );
 }
