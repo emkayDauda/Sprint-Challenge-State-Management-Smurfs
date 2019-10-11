@@ -13,7 +13,9 @@ export const addSmurf = (smurfs) => {
 export const getSmurfs = () => dispatch => {
     axios.get(smurfsApi)
     .then((response) => {
-        dispatch(response.data)
+        console.log(response.data);
+        
+        dispatch(addSmurf(response.data))
     })
     .catch((error) => {
         console.log(error);
