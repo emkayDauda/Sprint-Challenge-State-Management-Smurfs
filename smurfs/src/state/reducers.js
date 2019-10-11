@@ -10,7 +10,7 @@ const initialSmurfsList = [
 ];
 
 
-const smurfReducer = (state = initialSmurfsList, actions) => {
+export const smurfReducer = (state = initialSmurfsList, actions) => {
     switch (actions.type) {
         case actionTypes.ADD_SMURF:
             return state;   
