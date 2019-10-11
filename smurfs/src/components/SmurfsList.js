@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import * as actionCreators from "../state/actionCreators";
 import Smurf from './Smurfs';
@@ -12,11 +13,11 @@ export const SmurfsList = props => {
             getSmurfs()
         }, [])
     return(
-        <div>
+        <StyledList>
             {
                 smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf} />)
             }
-        </div>
+        </StyledList>
     )
 }
 
@@ -24,3 +25,8 @@ export default connect(
     state => state,
     actionCreators
 )(SmurfsList)
+
+const StyledList = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
