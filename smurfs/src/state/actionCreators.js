@@ -3,10 +3,10 @@ import axios from "axios";
 
 const smurfsApi = `http://localhost:3333/smurfs`;
 
-export const addSmurf = (smurfs) => {
+export const addSmurf = (smurf) => {
     return {
         type: actionTypes.ADD_SMURF,
-        payload: smurfs,
+        payload: {smurf: smurf},
     }
 }
 
@@ -14,8 +14,9 @@ export const getSmurfs = () => dispatch => {
     axios.get(smurfsApi)
     .then((response) => {
         console.log(response.data);
-        
-        dispatch(addSmurf(response.data))
+        response.data.forEach(smurf => {
+            dispatch(addSmurf(smurf))
+        });
     })
     .catch((error) => {
         console.log(error);

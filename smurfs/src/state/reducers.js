@@ -10,10 +10,10 @@ const initialSmurfsList = [
 ];
 
 
-export const smurfReducer = (state = initialSmurfsList, actions) => {
+export const smurfReducer = (state = [], actions) => {
     switch (actions.type) {
         case actionTypes.ADD_SMURF:
-            return state;   
+            return [...state, actions.payload.smurf];   
         default:
             return state;
     }
